@@ -1,33 +1,34 @@
 package com.nuiofrd;
 
 /**
- * Created by Brenden Bunker on 10/19/2014.
+ * Created by Brenden Bunker.
  */
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class ScreenGenerator extends JFrame implements KeyListener {
 
     //Intro Components
     JLabel display, blank, blank1, blank2, blank3;
     JButton one, two, three, four, five, six, seven, eight, nine, zero, clear, plus, minus, multiply, divide, equals;
-    KeyListener oneKey, twoKey, threeKey, fourKey, fiveKey, sixKey, sevenKey, eightKey, nineKey, zeroKey, clearKey, plusKey, minusKey, multiplyKey, divideKey, equalsKey;
-    FocusListener focusListener;
 
     //intro Vars
     double inputInt, currentSingleTotal, currentOverallTotal;
     int operation;
     String stringOut;
-    Boolean completeClear;
+    boolean completeClear;
 
     public ScreenGenerator() {
 
         setLayout(new GridLayout(5, 4));
 
         //Intro Ints
-        boolean completeClear = false;
+        completeClear = false;
         inputInt = 0;
         currentOverallTotal = 0;
         currentSingleTotal = 0;
@@ -120,7 +121,6 @@ public class ScreenGenerator extends JFrame implements KeyListener {
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-
     }
 
     @Override
@@ -239,7 +239,7 @@ public class ScreenGenerator extends JFrame implements KeyListener {
 
     public void operationClear(){
 
-        if(completeClear == false) {
+        if(!completeClear) {
             inputInt = 0;
             currentSingleTotal = 0;
             clear.setText("CC");
